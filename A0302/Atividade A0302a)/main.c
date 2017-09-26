@@ -29,6 +29,7 @@ int main(int argc, char** argv) {
     printf("\n");
     //    saldo(&dc);
 
+
     do {
         printf("\nInforme a operação desejada");
         printf("\n 1 - Lançar Crédito ");
@@ -55,7 +56,24 @@ int main(int argc, char** argv) {
         }
     } while (op != 4);
 
+    char nomeArq[] = "C:\\Users\\Alexandre\\Desktop\\nomes.txt";
+    char ch1[256];
+    FILE *arq;
+    int n = 0;
+    arq = fopen(nomeArq, "r");
+    if (arq == NULL) {
+        printf("Erro,não foi possivel abrir o arquivo\n");
+    } else {
+        while ((fscanf(arq, "%s\n", &ch1[n])) != EOF) {
+            printf("%s\n", ch1);
+            n++;
+        }
+        printf("Foram lidas %d linhas do arquivo!", n);
 
+    }
+    fclose(arq);
+
+    return (EXIT_SUCCESS);
 
 
 
